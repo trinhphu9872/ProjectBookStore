@@ -44,11 +44,11 @@
           <li>
             <a href="#">
               <i class="fa fa-home"></i>
-              <b>Trang Chủ</b>
+              Trang chủ
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="indexInfo-Admin.html">
               <i class="fa fa-user"></i>
               Thông tin tài khoản
             </a>
@@ -58,13 +58,13 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="IndexOrder-Admin.html">
               <i class="fa fa-id-card"></i>
               Quản lí đơn hàng
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="OrderManagement-Admin.html">
               <i class="fa fa-tags"></i>
               Quản lí sản phẩm
             </a>
@@ -77,9 +77,7 @@
 
       <!-- Page Content Holder -->
       <div id="content">
-        <h1 class="text-center text-title-Don text-light">
-          Danh sách những việc cần làm
-        </h1>
+        <h1 class="text-center text-title-Don text-light">Danh sách những việc cần làm</h1>
         <div class="container-fluid">
           <div class="card">
             <!-- Header -->
@@ -95,60 +93,59 @@
                     Thông tin chi tiết
                   </h3>
                 </div>
-                <div class="col-md-8 text-right"></div>
+                <div class="col-md-8 text-right">
+                 
+                </div>
               </div>
             </div>
 
             <!-- Body -->
-            <div class="from_row">
-              <td><input type="checkbox" name="Choxacnhan" /></td>
-              <label style="margin-right: 32px" for="Choxacnhan"
-                >Kiểm tra các đơn chờ xác nhận :
-              </label>
-              <td><input type="text" size="5" /></td>
+            <div class="from_row" >
+              <td><input type="checkbox" name="Choxacnhan"></td>
+              <label style="margin-right: 32px;" for="Choxacnhan" >Kiểm tra các đơn chờ xác nhận : </label>
+              <td><input type="text" size=5></td>
+            </div>
+           
+            
+            <div class="from_row" >
+            <td><input type="checkbox" name="Cholayhang"></td>
+            <label style="margin-right: 36px;" for="Cholayhang" >Kiểm tra các đơn chờ lấy hàng : </label>
+            <td><input type="text " size=5></td>
+            </div>
+            
+            
+            <div class="from_row" >
+              <td><input type="checkbox" name="Daxuly"></td>
+              <label style="margin-right: 77px;" for="Daxuly"  >Kiểm tra các đơn đã xử lý : </label>
+              <td><input type="text" size=5></td>
             </div>
 
-            <div class="from_row">
-              <td><input type="checkbox" name="Cholayhang" /></td>
-              <label style="margin-right: 36px" for="Cholayhang"
-                >Kiểm tra các đơn chờ lấy hàng :
-              </label>
-              <td><input type="text " size="5" /></td>
+            
+            <div class="from_row" >
+              <td><input type="checkbox" name="DonHuy"></td>
+              <label style="margin-right: 65px;" for="DonHuy" >Kiểm tra các đơn hủy hàng : </label>
+              <td><input type="text" size=5></td>
+            </div>     
+            <div class="from_row" >
+              <td><input type="checkbox";  name="Sanphamhethang"></td>
+              <label style="margin-right: 22px;" for="Sanphamhethang" >Kiểm tra các sản phẩm hết hàng : </label>
+              <td><input type="text" size=5></td>
             </div>
 
-            <div class="from_row">
-              <td><input type="checkbox" name="Daxuly" /></td>
-              <label style="margin-right: 77px" for="Daxuly"
-                >Kiểm tra các đơn đã xử lý :
-              </label>
-              <td><input type="text" size="5" /></td>
-            </div>
 
-            <div class="from_row">
-              <td><input type="checkbox" name="DonHuy" /></td>
-              <label style="margin-right: 65px" for="DonHuy"
-                >Kiểm tra các đơn hủy hàng :
-              </label>
-              <td><input type="text" size="5" /></td>
-            </div>
-            <div class="from_row">
-              <td><input type="checkbox" ; name="Sanphamhethang" /></td>
-              <label style="margin-right: 22px" for="Sanphamhethang"
-                >Kiểm tra các sản phẩm hết hàng :
-              </label>
-              <td><input type="text" size="5" /></td>
-            </div>
-
-            <div class="from_row">
-              <td><input type="checkbox" name="Sanphamtambikhoa" /></td>
-              <label>Kiểm tra các sản phẩm bị tạm khóa : </label>
-              <td><input type="text" size="5" /></td>
+            <div class="from_row" >
+              <td><input type="checkbox" name="Sanphamtambikhoa"></td>
+              <label >Kiểm tra các sản phẩm bị tạm khóa : </label>
+              <td><input type="text" size=5></td>
             </div>
 
             <div class="from_row">
               <label class="input__label">&nbsp;</label>
               <button class="btn__submit" type="submit">Cập nhật</button>
-            </div>
+              
+          </div>
+            
+            
 
             <!-- Footer -->
             <div class="card-footer myCardFooter">

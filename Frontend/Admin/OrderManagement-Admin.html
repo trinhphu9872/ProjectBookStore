@@ -42,23 +42,23 @@
 
         <ul class="list-unstyled components">
           <li>
-            <a href="">
+            <a href="Index--Admin.html">
               <i class="fa fa-home"></i>
               Trang chủ
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="indexInfo-Admin.html">
               <i class="fa fa-user"></i>
               Thông tin tài khoản
             </a>
-            <a href="">
+            <a href="#">
               <i class="fa fa-bell"></i>
               Thông báo của tôi
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="IndexOrder-Admin.html">
               <i class="fa fa-id-card"></i>
               Quản lí đơn hàng
             </a>
@@ -77,7 +77,7 @@
 
       <!-- Page Content Holder -->
       <div id="content">
-        <h1 class="text-center text-title-Don text-light">Quản lí đơn hàng</h1>
+        <h1 class="text-center text-title-Don text-light">Quản lí sản phẩm</h1>
         <div class="container-fluid">
           <div class="card">
             <!-- Header -->
@@ -90,7 +90,7 @@
                       font-weight-bold
                     "
                   >
-                    Danh Sách Đơn Hàng
+                    Danh Sách Sản Phẩm
                   </h3>
                 </div>
                 <div class="col-md-6 text-right">
@@ -100,7 +100,7 @@
                     data-toggle="modal"
                     data-target="#myModal"
                   >
-                    Thêm Đơn Hàng
+                    Thêm Sản Phẩm
                   </button>
                 </div>
               </div>
@@ -114,7 +114,7 @@
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="Đơn Hàng Khách Hàng"
+                      placeholder="Sản phẩm"
                       id="searchName"
                     />
                     <div class="input-group-prepend">
@@ -129,13 +129,14 @@
                 <thead class="text-primary">
                   <tr>
                     <th class="nowrap">
-                      <span class="">Mã Đơn</span>
+                      <span class="">Mã sản phẩm</span>
                     </th>
-                    <th>ID Customer</th>
-                    <th>Time</th>
-                    <th>payment</th>
-                    <th>Total</th>
-                    <th>Status</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Tên Tác Giả</th>
+                    <th>Nhà Sản Xuất</th>
+                    <th>Loại Sảm Phẩm</th>
+                    <th>Loại Sách</th>
+                    <th></th>
                     <th><em class="fa fa-cog"></em></th>
                   </tr>
                 </thead>
@@ -162,7 +163,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <header class="head-form mb-0">
-            <h2 id="header-title">Đơn Hàng</h2>
+            <h2 id="header-title">Sản Phẩm</h2>
           </header>
 
           <!-- Modal Header -->
@@ -182,14 +183,14 @@
                     ></span>
                   </div>
                   <input
-                    type="text"
-                    name="maDonHang"
-                    id="maDonHang"
+                    type="number"
+                    name="maSanPham"
+                    id="maSanPham"
                     class="form-control input-sm"
-                    placeholder="Mã Đơn Hàng"
+                    placeholder="Mã sản phẩm"
                   />
                 </div>
-                <span class="sp-thongbao" id="tbMaDonHang"></span>
+                <span class="sp-thongbao" id="tbMaSanPham"></span>
               </div>
 
               <div class="form-group">
@@ -201,88 +202,213 @@
                   </div>
                   <input
                     type="text"
-                    name="maKH"
-                    id="maKH"
+                    name="tenSanPham"
+                    id="tenSanPham"
                     class="form-control input-sm"
-                    placeholder="Mã Khách Hàng"
+                    placeholder="Tên sản phẩm"
                   />
                 </div>
-                <span class="sp-thongbao" id="tbmaKH"></span>
+                <span class="sp-thongbao" id="tbTenSanPham"></span>
               </div>
 
               <div class="form-group">
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa fa-calendar"></i
+                      ><i class="fa fa-address-book"></i
                     ></span>
                   </div>
                   <input
                     type="text"
-                    name="ngayTao"
-                    id="datepicker"
-                    class="form-control"
-                    placeholder="Ngày Tạo"
+                    name="tenTacGia"
+                    id="tenTacGia"
+                    class="form-control input-sm"
+                    placeholder="Tên Tác giả"
                   />
                 </div>
-
-                <span class="sp-thongbao" id="tbNgay"></span>
+                <span class="sp-thongbao" id="tbTenTacGia"></span>
               </div>
 
               <div class="form-group">
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa fa-envelope"></i
+                      ><i class="fa fa-address-book"></i
                     ></span>
                   </div>
                   <input
                     type="text"
-                    name="creditCard"
-                    id="creditCard"
+                    name="tenNXB"
+                    id="tenNXB"
                     class="form-control input-sm"
-                    placeholder="Phương Thức Thanh Toán"
+                    placeholder="Nhà Xuất Bản"
                   />
                 </div>
-
-                <span class="sp-thongbao" id="tbcreditCard"></span>
+                <span class="sp-thongbao" id="tbNXB"></span>
               </div>
 
               <div class="form-group">
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa fa-envelope"></i
+                      ><i class="fa fa-address-book"></i
                     ></span>
                   </div>
-                  <input
-                    type="text"
-                    name="price"
-                    id="price"
-                    class="form-control input-sm"
-                    placeholder="Tổng giá trị đơn hàng"
-                  />
+                 
+                  <label class="text_label_01 mt_01">Loại sách : </label>
+                            <select id="LoaiSach" autocomplete="off" name="LoaiSach" style="padding: 0px; border: 1px solid; border-radius: 0px;">
+								<option value="Sách IT">Sách IT</option>
+								<option value="Sách AV">Sách AV</option>
+                <option value="Sách VanHoc">Sách Văn Học</option>
+							    </select>
                 </div>
-
-                <span class="sp-thongbao" id="tbprice"></span>
+                <span class="sp-thongbao" id="tbLoaiSach"></span>
               </div>
 
               <div class="form-group">
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa fa-briefcase"></i
+                      ><i class="fa fa-address-book"></i
                     ></span>
                   </div>
-                  <select class="form-control" id="status">
-                    <option class="text-primary">Pending</option>
-                    <option class="text-danger">Reject</option>
-                    <option class="text-success">Resolve</option>
-                  </select>
+                 
+                  <label class="text_label_01 mt_01">Loại Bìa : </label>
+                            <select id="BiaSach" autocomplete="off" name="BiaSach style="padding: 0px; border: 1px solid; border-radius: 0px;">
+								<option value="Sách IT">Bìa cứng</option>
+								<option value="Sách AV">Bìa mềm</option>
+                
+							    </select>
+                </div>
+                <span class="sp-thongbao" id="tbBiaSach"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-book"></i
+                    ></span>
+                  </div>
+                  
+                  <input id="DonGia" required autocomplete="off" 
+                          type="number" class="text_input_01" 
+                          placeholder="Đơn Giá"
+                          min="1" oninput="validity.valid||(value='');"><samp> (VND)</samp>
+
+                </div>
+                <span class="sp-thongbao" id="tbDonGia"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-book"></i
+                    ></span>
+                  </div>
+                  
+                  <input id="SoLuong" required autocomplete="off" 
+                          type="number" class="text_input_01" 
+                          placeholder="Số lượng"
+                          min="1" oninput="validity.valid||(value='');">
+
+                </div>
+                <span class="sp-thongbao" id="tbSoLuong"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-book"></i
+                    ></span>
+                  </div>
+                  
+                  <input id="SoTrang" required autocomplete="off" 
+                          type="number" class="text_input_01" 
+                          placeholder="Số Trang"
+                          min="1" oninput="validity.valid||(value='');">
+
+                </div>
+                <span class="sp-thongbao" id="tbSoTrang"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-book"></i
+                    ></span>
+                  </div>
+                  
+                  <input id="KickThuoc" required autocomplete="off" 
+                          type="number" class="text_input_01" 
+                          placeholder="Kích Thước"
+                          min="1" oninput="validity.valid||(value='');"><samp> (cm)</samp>
+
+                </div>
+                <span class="sp-thongbao" id="tbKickThuoc"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-book"></i
+                    ></span>
+                  </div>
+                  
+                  <input id="TrongLuong" required autocomplete="off" 
+                          type="number" class="text_input_01" 
+                          placeholder="Trọng Lượng"
+                          min="1" oninput="validity.valid||(value='');"><samp> (kg)</samp>
+
+                </div>
+                <span class="sp-thongbao" id="tbTrongLuong"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-address-book"></i
+                    ></span>
+                  </div>
+                    <label class="text_label_01 mt_01">Hình ảnh</label>
+							      <input type="file" name="image" class="input_img_01" id="ImagePath" required>
+							      <div class="image_aria " id="image_aria">
+								      <img src="" alt="anhSP" class="anh">
+								      <span class="them_image">Hình đại diện sách</span>
+							      </div>
+
+                </div>
+                <span class="sp-thongbao" id="tbHinhAnh"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="fa fa-address-book"></i
+                      ></span>
+                    </div>
+                    <label class="text_label_01 mt_01">Mô tả</label>
+							      <textarea required rows="10" cols="70" 
+                    id="MoTa" name="mota" form="add_product" 
+                    placeholder="Nhập mô tả" 
+                    autocomplete="off" 
+                    class="text_input_01"></textarea>
                 </div>
 
-                <span class="sp-thongbao" id="tbstatus"></span>
+                <span class="sp-thongbao" id="tbMota"></span>
               </div>
+
+              
+
+              
+
+              
             </form>
           </div>
 
