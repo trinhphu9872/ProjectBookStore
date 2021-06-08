@@ -317,6 +317,35 @@ ALTER TABLE `taikhoan`
 --
 ALTER TABLE `trangthaidonhang`
   ADD PRIMARY KEY (`MaTrangThaiDH`);
+
+
+ALTER TABLE `chitietdonhang`
+  ADD CONSTRAINT `chitietdonhang_ibfk_1` FOREIGN KEY (`MachiTietDH`) REFERENCES `donhang` (`MaDH`);
+
+--
+-- Các ràng buộc cho bảng `chitietgiohang`
+--
+ALTER TABLE `chitietgiohang`
+  ADD CONSTRAINT `chitietgiohang_ibfk_1` FOREIGN KEY (`MaChiTietGH`) REFERENCES `giohang` (`MaGH`);
+
+--
+-- Các ràng buộc cho bảng `giohang`
+--
+ALTER TABLE `giohang`
+  ADD CONSTRAINT `giohang_ibfk_1` FOREIGN KEY (`MaKH`) REFERENCES `taikhoankh` (`MaKH`);
+
+--
+-- Các ràng buộc cho bảng `lichsugd`
+--
+ALTER TABLE `lichsugd`
+  ADD CONSTRAINT `lichsugd_ibfk_1` FOREIGN KEY (`MaKH`) REFERENCES `taikhoan` (`MaKH`),
+  ADD CONSTRAINT `lichsugd_ibfk_2` FOREIGN KEY (`MaDH`) REFERENCES `donhang` (`MaDH`);
+
+--
+-- Các ràng buộc cho bảng `trangthaidonhang`
+--
+ALTER TABLE `trangthaidonhang`
+  ADD CONSTRAINT `trangthaidonhang_ibfk_1` FOREIGN KEY (`MaDH`) REFERENCES `donhang` (`MaDH`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
