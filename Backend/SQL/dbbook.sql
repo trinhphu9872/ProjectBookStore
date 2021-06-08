@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 07, 2021 lúc 05:46 AM
+-- Thời gian đã tạo: Th6 09, 2021 lúc 12:34 AM
 -- Phiên bản máy phục vụ: 10.4.17-MariaDB
 -- Phiên bản PHP: 8.0.2
 
@@ -233,10 +233,21 @@ INSERT INTO `sanpham` (`MaSP`, `TenSP`, `MaLoaiSP`, `TacGia`, `NXB`, `DonGia`, `
 
 CREATE TABLE `taikhoan` (
   `maKH` int(11) NOT NULL,
-  `Email` mediumtext NOT NULL,
-  `root` bit(1) DEFAULT NULL,
-  `matKhau` mediumtext NOT NULL
+  `tenTk` text NOT NULL,
+  `root` text DEFAULT NULL,
+  `matKhau` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`maKH`, `tenTk`, `root`, `matKhau`) VALUES
+(1, 'trinhphu9872', 'admin', 'hello123'),
+(2, 'Quynh1103', 'Admin', 'abc123'),
+(3, 'Trongcong1104', 'User', 'abc123'),
+(4, 'Dung2333', 'Admin', 'abc123'),
+(5, 'Nguye1213', 'User', 'abc123');
 
 -- --------------------------------------------------------
 
@@ -274,7 +285,14 @@ INSERT INTO `trangthaidonhang` (`MaTrangThaiDH`, `MaDH`, `ThoiGian`, `TrangThai`
 -- Chỉ mục cho bảng `chitietdonhang`
 --
 ALTER TABLE `chitietdonhang`
-  ADD PRIMARY KEY (`MachiTietDH`);
+  ADD PRIMARY KEY (`MachiTietDH`),
+  ADD KEY `MaDonHang` (`MaDonHang`);
+
+--
+-- Chỉ mục cho bảng `chitietgiohang`
+--
+ALTER TABLE `chitietgiohang`
+  ADD KEY `MaGioHang` (`MaGioHang`);
 
 --
 -- Chỉ mục cho bảng `donhang`
@@ -292,7 +310,9 @@ ALTER TABLE `giohang`
 -- Chỉ mục cho bảng `lichsugd`
 --
 ALTER TABLE `lichsugd`
-  ADD PRIMARY KEY (`MaGD`);
+  ADD PRIMARY KEY (`MaGD`),
+  ADD KEY `MaDH` (`MaDH`),
+  ADD KEY `MaKH` (`MaKH`);
 
 --
 -- Chỉ mục cho bảng `loaisanpham`
@@ -316,30 +336,31 @@ ALTER TABLE `taikhoan`
 -- Chỉ mục cho bảng `trangthaidonhang`
 --
 ALTER TABLE `trangthaidonhang`
-  ADD PRIMARY KEY (`MaTrangThaiDH`);
+  ADD PRIMARY KEY (`MaTrangThaiDH`),
+  ADD KEY `MaDH` (`MaDH`);
 
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
 
+--
+-- Các ràng buộc cho bảng `chitietdonhang`
+--
 ALTER TABLE `chitietdonhang`
-  ADD CONSTRAINT `chitietdonhang_ibfk_1` FOREIGN KEY (`MachiTietDH`) REFERENCES `donhang` (`MaDH`);
+  ADD CONSTRAINT `chitietdonhang_ibfk_1` FOREIGN KEY (`MaDonHang`) REFERENCES `donhang` (`MaDH`);
 
 --
 -- Các ràng buộc cho bảng `chitietgiohang`
 --
 ALTER TABLE `chitietgiohang`
-  ADD CONSTRAINT `chitietgiohang_ibfk_1` FOREIGN KEY (`MaChiTietGH`) REFERENCES `giohang` (`MaGH`);
-
---
--- Các ràng buộc cho bảng `giohang`
---
-ALTER TABLE `giohang`
-  ADD CONSTRAINT `giohang_ibfk_1` FOREIGN KEY (`MaKH`) REFERENCES `taikhoankh` (`MaKH`);
+  ADD CONSTRAINT `chitietgiohang_ibfk_1` FOREIGN KEY (`MaGioHang`) REFERENCES `giohang` (`MaGH`);
 
 --
 -- Các ràng buộc cho bảng `lichsugd`
 --
 ALTER TABLE `lichsugd`
-  ADD CONSTRAINT `lichsugd_ibfk_1` FOREIGN KEY (`MaKH`) REFERENCES `taikhoan` (`MaKH`),
-  ADD CONSTRAINT `lichsugd_ibfk_2` FOREIGN KEY (`MaDH`) REFERENCES `donhang` (`MaDH`);
+  ADD CONSTRAINT `lichsugd_ibfk_1` FOREIGN KEY (`MaDH`) REFERENCES `donhang` (`MaDH`),
+  ADD CONSTRAINT `lichsugd_ibfk_2` FOREIGN KEY (`MaKH`) REFERENCES `taikhoan` (`maKH`);
 
 --
 -- Các ràng buộc cho bảng `trangthaidonhang`
