@@ -2,8 +2,8 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 12, 2021 lúc 02:19 PM
+-- Máy chủ: localhost:3308
+-- Thời gian đã tạo: Th6 13, 2021 lúc 01:30 PM
 -- Phiên bản máy phục vụ: 10.4.17-MariaDB
 -- Phiên bản PHP: 8.0.2
 
@@ -68,35 +68,6 @@ INSERT INTO `chitietdonhang` (`MachiTietDH`, `MaDonHang`, `MaSP`, `SoLuong`, `Do
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chitietgiohang`
---
-
-CREATE TABLE `chitietgiohang` (
-  `MaChiTietGH` int(255) NOT NULL,
-  `MaGioHang` int(255) NOT NULL,
-  `MaSP` mediumtext NOT NULL,
-  `TenSP` text NOT NULL,
-  `TacGia` text NOT NULL,
-  `SoLuongMua` int(255) NOT NULL,
-  `SoLuong` int(255) NOT NULL,
-  `DonGia` float NOT NULL,
-  `TongCong` float NOT NULL,
-  `ImagePath` varchar(10000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `chitietgiohang`
---
-
-INSERT INTO `chitietgiohang` (`MaChiTietGH`, `MaGioHang`, `MaSP`, `TenSP`, `TacGia`, `SoLuongMua`, `SoLuong`, `DonGia`, `TongCong`, `ImagePath`) VALUES
-(2631, 993, '3', 'React js: The Ultimate Beginner\'s Guide to Learn React js Programming Step by Step', 'Claudia Alves', 3, 18, 799232, 2397700, '~/ImageProduct/IT-03_132658209836509598.jpg'),
-(2632, 993, '1', 'Code Dạo Kí Sự - Lập Trình Viên Đâu Phải Chỉ Biết Code', 'Phạm Huy Hoàng (Developer)', 1, 34, 159000, 159000, '~/ImageProduct/IT-01_132658203018545238.jpg'),
-(2697, 1036, '1', 'Code Dạo Kí Sự - Lập Trình Viên Đâu Phải Chỉ Biết Code', 'Phạm Huy Hoàng (Developer)', 1, 34, 159000, 159000, '~/ImageProduct/IT-01_132658203018545238.jpg'),
-(2698, 1036, '3', 'React js: The Ultimate Beginner\'s Guide to Learn React js Programming Step by Step', 'Claudia Alves', 1, 18, 799232, 799232, '~/ImageProduct/IT-03_132658209836509598.jpg');
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `donhang`
 --
 
@@ -157,40 +128,6 @@ INSERT INTO `giohang` (`MaGH`, `MaKH`, `TongTien`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `lichsugd`
---
-
-CREATE TABLE `lichsugd` (
-  `MaGD` int(255) NOT NULL,
-  `MaDH` int(11) NOT NULL,
-  `MaKH` int(11) NOT NULL,
-  `ThoiGianGD` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `loaisanpham`
---
-
-CREATE TABLE `loaisanpham` (
-  `MaLoaiSP` int(255) NOT NULL,
-  `CodeLoaiSP` text NOT NULL,
-  `TenLoaiSP` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `loaisanpham`
---
-
-INSERT INTO `loaisanpham` (`MaLoaiSP`, `CodeLoaiSP`, `TenLoaiSP`) VALUES
-(1, 'IT', 'Sách IT'),
-(2, 'VH', 'Sách Văn Học'),
-(3, 'TA', 'Sách Tiếng Anh');
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `sanpham`
 --
 
@@ -233,8 +170,8 @@ INSERT INTO `sanpham` (`MaSP`, `TenSP`, `MaLoaiSP`, `TacGia`, `NXB`, `DonGia`, `
 
 CREATE TABLE `taikhoan` (
   `maKH` int(11) NOT NULL,
+  `Email` varchar(255) NOT NULL,
   `tenTk` text NOT NULL,
-  `root` text DEFAULT NULL,
   `matKhau` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -242,40 +179,25 @@ CREATE TABLE `taikhoan` (
 -- Đang đổ dữ liệu cho bảng `taikhoan`
 --
 
-INSERT INTO `taikhoan` (`maKH`, `tenTk`, `root`, `matKhau`) VALUES
-(1, 'trinhphu9872', 'admin', 'hello123'),
-(2, 'Quynh1103', 'Admin', 'abc123'),
-(3, 'Trongcong1104', 'User', 'abc123'),
-(4, 'Dung2333', 'Admin', 'abc123'),
-(5, 'Nguye1213', 'User', 'abc123');
+INSERT INTO `taikhoan` (`maKH`, `Email`, `tenTk`, `matKhau`) VALUES
+(1, '', 'trinhphu9872', 'hello123'),
+(2, '', 'Quynh1103', 'abc123'),
+(3, 'cong@gmail.com', 'Trongcong1104', 'abc123'),
+(4, '', 'Dung2333', 'abc123'),
+(5, '', 'Nguye1213', 'abc123');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `trangthaidonhang`
+-- Cấu trúc bảng cho bảng `taikhoanadmin`
 --
 
-CREATE TABLE `trangthaidonhang` (
-  `MaTrangThaiDH` int(11) NOT NULL,
-  `MaDH` int(11) NOT NULL,
-  `ThoiGian` date NOT NULL,
-  `TrangThai` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `trangthaidonhang`
---
-
-INSERT INTO `trangthaidonhang` (`MaTrangThaiDH`, `MaDH`, `ThoiGian`, `TrangThai`) VALUES
-(121, 41, '2021-05-06', 'Admin đã tiếp nhận'),
-(123, 41, '2021-05-06', 'Đang giao hàng'),
-(128, 41, '2021-05-06', 'Chờ xác nhận'),
-(138, 48, '2021-05-18', 'Chờ xác nhận'),
-(139, 49, '2021-05-18', 'Chờ xác nhận'),
-(140, 49, '2021-05-18', 'Admin đã tiếp nhận'),
-(141, 50, '2021-05-18', 'Chờ xác nhận'),
-(142, 51, '2021-05-18', 'Chờ xác nhận'),
-(143, 52, '2021-05-19', 'Chờ xác nhận');
+CREATE TABLE `taikhoanadmin` (
+  `maAdmin` int(255) NOT NULL,
+  `Email` varchar(255) COLLATE utf32_unicode_ci NOT NULL,
+  `tenAdmin` varchar(255) COLLATE utf32_unicode_ci NOT NULL,
+  `matKhau` varchar(255) COLLATE utf32_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -287,12 +209,6 @@ INSERT INTO `trangthaidonhang` (`MaTrangThaiDH`, `MaDH`, `ThoiGian`, `TrangThai`
 ALTER TABLE `chitietdonhang`
   ADD PRIMARY KEY (`MachiTietDH`),
   ADD KEY `MaDonHang` (`MaDonHang`);
-
---
--- Chỉ mục cho bảng `chitietgiohang`
---
-ALTER TABLE `chitietgiohang`
-  ADD KEY `MaGioHang` (`MaGioHang`);
 
 --
 -- Chỉ mục cho bảng `donhang`
@@ -307,20 +223,6 @@ ALTER TABLE `giohang`
   ADD PRIMARY KEY (`MaGH`);
 
 --
--- Chỉ mục cho bảng `lichsugd`
---
-ALTER TABLE `lichsugd`
-  ADD PRIMARY KEY (`MaGD`),
-  ADD KEY `MaDH` (`MaDH`),
-  ADD KEY `MaKH` (`MaKH`);
-
---
--- Chỉ mục cho bảng `loaisanpham`
---
-ALTER TABLE `loaisanpham`
-  ADD PRIMARY KEY (`MaLoaiSP`);
-
---
 -- Chỉ mục cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
@@ -333,11 +235,20 @@ ALTER TABLE `taikhoan`
   ADD PRIMARY KEY (`maKH`);
 
 --
--- Chỉ mục cho bảng `trangthaidonhang`
+-- Chỉ mục cho bảng `taikhoanadmin`
 --
-ALTER TABLE `trangthaidonhang`
-  ADD PRIMARY KEY (`MaTrangThaiDH`),
-  ADD KEY `MaDH` (`MaDH`);
+ALTER TABLE `taikhoanadmin`
+  ADD PRIMARY KEY (`maAdmin`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `taikhoanadmin`
+--
+ALTER TABLE `taikhoanadmin`
+  MODIFY `maAdmin` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -348,25 +259,6 @@ ALTER TABLE `trangthaidonhang`
 --
 ALTER TABLE `chitietdonhang`
   ADD CONSTRAINT `chitietdonhang_ibfk_1` FOREIGN KEY (`MaDonHang`) REFERENCES `donhang` (`MaDH`);
-
---
--- Các ràng buộc cho bảng `chitietgiohang`
---
-ALTER TABLE `chitietgiohang`
-  ADD CONSTRAINT `chitietgiohang_ibfk_1` FOREIGN KEY (`MaGioHang`) REFERENCES `giohang` (`MaGH`);
-
---
--- Các ràng buộc cho bảng `lichsugd`
---
-ALTER TABLE `lichsugd`
-  ADD CONSTRAINT `lichsugd_ibfk_1` FOREIGN KEY (`MaDH`) REFERENCES `donhang` (`MaDH`),
-  ADD CONSTRAINT `lichsugd_ibfk_2` FOREIGN KEY (`MaKH`) REFERENCES `taikhoan` (`maKH`);
-
---
--- Các ràng buộc cho bảng `trangthaidonhang`
---
-ALTER TABLE `trangthaidonhang`
-  ADD CONSTRAINT `trangthaidonhang_ibfk_1` FOREIGN KEY (`MaDH`) REFERENCES `donhang` (`MaDH`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
