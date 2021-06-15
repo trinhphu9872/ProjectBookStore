@@ -63,7 +63,7 @@
 		<div class="back">
 			<div class="row">
 				<div class="col-sm-2">
-					<div><a class="logo" href="Index-Home.html">JUSTBOOK</a></div>
+					<div><a class="logo" href="#"></a></div>
 				</div>
 				<div class="col-sm-10">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -96,15 +96,15 @@
 						   </div>
 						</div>
 						   <nav class="col-lg-8 navbar navbar-light bg-light">
-							<form class="form-inline">
+							<form class="form-inline" action="search.php" method="GET">
 								<div class="custom-search">
-									<input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+									<input class="form-control mr-sm-2" type="search" name ="keyword" placeholder="Search..." aria-label="Search">
 								</div>
 								<button class="custom-btn btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
 							</form>
 						   </nav>
                            <div class="col-sm-2 cart">
-								<a href="Cart-Index.html">
+								<a href="#">
 									<i class="fa fa-shopping-cart"></i>
 									<span class='badge badge-warning' id='cartCount'>0</span>
 									<span class="cartText">Giỏ Hàng</span>
@@ -119,11 +119,13 @@
 									</div>	
 								</div>
 								<div class="dropdownMenuLogin dropdown-menu" aria-labelledby="loginMenu">
-									<button class="itemLogin dropdown-item"> <a href="Login-User.html" style="color: #FFF;">Đăng nhập<a></button>
-										<button class="itemLogin dropdown-item"> <a href="Registration.html" style="color: #FFF;">Tạo tài khoản<a>
-										<button class="itemLoginAdmin dropdown-item" >
-											<a href="Login-Admin.html" style="color: #FFF;">Tài khoản Admin </a>
-										</button>
+									<button class="itemLogin dropdown-item">Đăng nhập</button>
+									<button class="itemLogin dropdown-item">Tạo tài khoản</a>
+									<button class="itemLogin dropdown-item">
+										
+										</span >						
+										Tài khoản Admin
+									</button>
 								</div>
 						   </div>
                         </div>
