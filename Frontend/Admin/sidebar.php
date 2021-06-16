@@ -13,9 +13,9 @@
         </a>
       </li>
       <li>
-        <a href=''>
+        <a href='AdminInfo.php'>
           <i class='fa fa-user'></i>
-          Thông tin tài khoản
+           Tài khoản Admin
         </a>
         
       </li>
