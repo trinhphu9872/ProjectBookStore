@@ -138,8 +138,8 @@
                         <div class="row">
                             <div class="login_box" style="margin-left: 120px">
                                 <div id="message" style="text-align: center;; color: red;"></div>
-                                    <input class="center-block" type="email" id="Email" name="Email" placeholder="Vui lòng nhập Email" required style="width: 400px;"><br><br>
-                                    <input class="center-block" type="password" id="MatKhau" name="MatKhau" placeholder="Vui lòng nhập mật khẩu" required style="width: 400px;"><br>
+                                    <input class="center-block" type="email" id="Email" name="Email" placeholder="Vui lòng nhập Email" required style="width: 400px; height: 40px;"><br><br>
+                                    <input class="center-block" type="password" id="MatKhau" name="MatKhau" placeholder="Vui lòng nhập mật khẩu" required style="width: 400px; height: 40px;"><br>
                            
                                     <div style=" color: red; font-weight: bold;"></div>
                             

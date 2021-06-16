@@ -137,8 +137,8 @@
 				<div class="collection_section_2">
 					<div class="row">
 						<div class = "login_box" style ="margin-left: 120px">
-							<input class="center-block" type="text" id="account" name="Email" placeholder = "Vui lòng nhập Email" style="width: 400px;"><br><br>
-							<input class="center-block" type="password" id="pass" name="MatKhau" placeholder = "Vui lòng nhập mật khẩu" style="width: 400px;">
+							<input class="center-block" type="text" id="account" name="Email" placeholder = "Vui lòng nhập Email" style="width: 400px; height: 40px;"><br><br>
+							<input class="center-block" type="password" id="pass" name="MatKhau" placeholder = "Vui lòng nhập mật khẩu" style="width: 400px; height: 40px;">
 							<p> Don't have an account?<a href="Registration.php"> Click here</a></p><br>
                             <input type = "submit" name = "dangnhap" id = " " class="subscribr_bt" style ="width: 100%;" value = "Sign In" > <br><br><br><br>		
 						</div>
