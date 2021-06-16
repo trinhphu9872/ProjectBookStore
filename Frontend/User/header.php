@@ -1,5 +1,5 @@
-<?php
-        echo "<div class='back'>
+
+     <div class='back'>
         <div class='container-fluid'>
             <div class='pt-2 row navrow'>
                 <div class='col-2'>
@@ -53,9 +53,23 @@
                             </form>
                         </nav>
                         <div class='col-3 cart'>
-                            <a href='Cart-Index.html'>
+                            <a href='cart.php'>
                                 <i class='fa fa-shopping-cart'></i>
-                                <span class='badge badge-warning' id='cartCount'>0</span>
+                                <?php
+                                    if (!isset($_SESSION)) {
+                                        session_start();
+                                    }  
+                                      if(isset($_SESSION['carts'])) {
+                                         ?>
+                                             <span class='badge badge-warning' id='CartCount'><?php echo $_SESSION['carts']?></span>
+                                         <?php
+                                     }
+                                     else {
+                                         ?>
+                                             <span class='badge badge-warning' id='CartCount'>0</span>
+                                         <?php
+                                     }
+                                ?>
                                 <span class='cartText'>Giỏ Hàng</span>
                             </a>
                         </div>
@@ -85,6 +99,3 @@
 
         </div>
 
-
-"
-?>
