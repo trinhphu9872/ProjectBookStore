@@ -35,48 +35,13 @@
   <body>
     <div class="wrapper">
       <!-- Sidebar Holder -->
-      <nav id="sidebar">
-        <div class="sidebar-header">
-          <a href="#"><h3 class="title-Book text-center">BookStore</h3></a>
-        </div>
-
-        <ul class="list-unstyled components">
-          <li>
-            <a href="Index--Admin.html">
-              <i class="fa fa-home"></i>
-              Trang chủ
-            </a>
-          </li>
-          <li>
-            <a href="indexInfo-Admin.html">
-              <i class="fa fa-user"></i>
-              Thông tin tài khoản
-            </a>
-            <a href="#">
-              <i class="fa fa-bell"></i>
-              Thông báo của tôi
-            </a>
-          </li>
-          <li>
-            <a href="IndexOrder-Admin.html">
-              <i class="fa fa-id-card"></i>
-              Quản lí đơn hàng
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-tags"></i>
-              Quản lí sản phẩm
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li class="text-center text"></li>
-        </ul>
-      </nav>
+      <?php
+        include("sidebar.php");
+      ?>
 
       <!-- Page Content Holder -->
       <div id="content">
+  
         <h1 class="text-center text-title-Don text-light">Quản lí sản phẩm</h1>
         <div class="container-fluid">
           <div class="card">
@@ -140,6 +105,7 @@
                   </tr>
                 </thead>
                 <tbody id="tableDonHang">
+                
                   <?php
                       include('connect.php');
                       $lenh = "select * from sanpham";
@@ -147,16 +113,19 @@
                       
                       while($row = mysqli_fetch_row($kq))
                       {
-                        echo"<tr key=$row[0]>
+                        echo"
+                        <tr key=$row[0] id='item'>
+                            <td>$row[0]</td>
                             <td>$row[1]</td>
+                            <td>$row[2]</td>
                             <td>$row[3]</td>
-                            <td>$row[4]</td>
                             <td>$row[7]</td>
 
-                            <td><img src=./images/$row[13] width='100px' alt=></td>
+                            <td><img src=./images/$row[11] width='100px' alt=></td>
                             <td>
-                              <button class='my-2 btn btn-info' data-toggle='modal' data-target='#myModal' onclick='editDon($row[1])'>Edit</button>
-                              <button class='my-2 btn btn-danger' onclick='delDon($row[1])'>Delete</button>
+                            <a href='updatepro.php?edit=$row[0]'> <button class='my-2 btn btn-info' onclick='edit()'>Edit</button></a>
+                             
+                              <a href='processPro.php?delete=$row[0]'><button class='my-2 btn btn-danger' onclick='xoa($row[1])' )'>Delete</button></a>
                             </td>
                         </tr>
                         ";
@@ -197,7 +166,8 @@
 
           <!-- Modal body -->
           <div class="modal-body">
-            <form role="form">
+            
+            <form role="form" method="POST" action="processPro.php" enctype='multipart/form-data'>
               <div class="form-group">
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -211,6 +181,7 @@
                     id="maSanPham"
                     class="form-control input-sm"
                     placeholder="Mã sản phẩm"
+              
                   />
                 </div>
                 <span class="sp-thongbao" id="tbMaSanPham"></span>
@@ -229,6 +200,7 @@
                     id="tenSanPham"
                     class="form-control input-sm"
                     placeholder="Tên sản phẩm"
+                  
                   />
                 </div>
                 <span class="sp-thongbao" id="tbTenSanPham"></span>
@@ -247,6 +219,7 @@
                     id="tenTacGia"
                     class="form-control input-sm"
                     placeholder="Tên Tác giả"
+            
                   />
                 </div>
                 <span class="sp-thongbao" id="tbTenTacGia"></span>
@@ -265,28 +238,13 @@
                     id="tenNXB"
                     class="form-control input-sm"
                     placeholder="Nhà Xuất Bản"
+              
                   />
                 </div>
                 <span class="sp-thongbao" id="tbNXB"></span>
               </div>
 
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="fa fa-address-book"></i
-                    ></span>
-                  </div>
-                 
-                  <label class="text_label_01 mt_01">Loại sách : </label>
-                            <select id="LoaiSach" autocomplete="off" name="LoaiSach" style="padding: 0px; border: 1px solid; border-radius: 0px;">
-								<option value="Sách IT">Sách IT</option>
-								<option value="Sách AV">Sách AV</option>
-                <option value="Sách VanHoc">Sách Văn Học</option>
-							    </select>
-                </div>
-                <span class="sp-thongbao" id="tbLoaiSach"></span>
-              </div>
+   
 
               <div class="form-group">
                 <div class="input-group">
@@ -297,11 +255,11 @@
                   </div>
                  
                   <label class="text_label_01 mt_01">Loại Bìa : </label>
-                            <select id="BiaSach" autocomplete="off" name="BiaSach style="padding: 0px; border: 1px solid; border-radius: 0px;">
-								<option value="Sách IT">Bìa cứng</option>
-								<option value="Sách AV">Bìa mềm</option>
+                            <select id="BiaSach"    name="BiaSach" style="padding: 0px; border: 1px solid; border-radius: 0px;">
+						              		<option value="Sách IT">Bìa cứng</option>
+							              	<option value="Sách AV">Bìa mềm</option>
                 
-							    </select>
+							             </select>
                 </div>
                 <span class="sp-thongbao" id="tbBiaSach"></span>
               </div>
@@ -314,9 +272,10 @@
                     ></span>
                   </div>
                   
-                  <input id="DonGia" required autocomplete="off" 
+                  <input id="DonGia" required autocomplete="off"  name="DonGia"
                           type="number" class="text_input_01" 
                           placeholder="Đơn Giá"
+                         
                           min="1" oninput="validity.valid||(value='');"><samp> (VND)</samp>
 
                 </div>
@@ -331,9 +290,10 @@
                     ></span>
                   </div>
                   
-                  <input id="SoLuong" required autocomplete="off" 
+                  <input id="SoLuong" required autocomplete="off"  name="soluong"
                           type="number" class="text_input_01" 
                           placeholder="Số lượng"
+                         
                           min="1" oninput="validity.valid||(value='');">
 
                 </div>
@@ -348,9 +308,10 @@
                     ></span>
                   </div>
                   
-                  <input id="SoTrang" required autocomplete="off" 
+                  <input id="SoTrang" required autocomplete="off" name="SoTrang"
                           type="number" class="text_input_01" 
                           placeholder="Số Trang"
+                        
                           min="1" oninput="validity.valid||(value='');">
 
                 </div>
@@ -365,9 +326,10 @@
                     ></span>
                   </div>
                   
-                  <input id="KickThuoc" required autocomplete="off" 
+                  <input id="KickThuoc" required autocomplete="off"  name="kichthuoc"
                           type="number" class="text_input_01" 
                           placeholder="Kích Thước"
+                     
                           min="1" oninput="validity.valid||(value='');"><samp> (cm)</samp>
 
                 </div>
@@ -382,9 +344,10 @@
                     ></span>
                   </div>
                   
-                  <input id="TrongLuong" required autocomplete="off" 
+                  <input id="TrongLuong" required autocomplete="off" name="trongluong"
                           type="number" class="text_input_01" 
                           placeholder="Trọng Lượng"
+                      
                           min="1" oninput="validity.valid||(value='');"><samp> (kg)</samp>
 
                 </div>
@@ -399,11 +362,11 @@
                     ></span>
                   </div>
                     <label class="text_label_01 mt_01">Hình ảnh</label>
-							      <input type="file" name="image" class="input_img_01" id="ImagePath" required>
-							      <div class="image_aria " id="image_aria">
-								      <img src="" alt="anhSP" class="anh">
-								      <span class="them_image">Hình đại diện sách</span>
-							      </div>
+                    <div >      
+              <span>
+              <input type='file' name='images'>
+              </span>     
+             </div>
 
                 </div>
                 <span class="sp-thongbao" id="tbHinhAnh"></span>
@@ -418,29 +381,23 @@
                     </div>
                     <label class="text_label_01 mt_01">Mô tả</label>
 							      <textarea required rows="10" cols="70" 
-                    id="MoTa" name="mota" form="add_product" 
+                    id="MoTa" name="mota" 
                     placeholder="Nhập mô tả" 
-                    autocomplete="off" 
+              
                     class="text_input_01"></textarea>
                 </div>
 
-                <span class="sp-thongbao" id="tbMota"></span>
+              
               </div>
 
               
 
-              
-
-              
-            </form>
-          </div>
-
-          <!-- Modal footer -->
+                        <!-- Modal footer -->
           <div class="modal-footer" id="modal-footer">
-            <button id="btnAdd" type="button" class="btn btn-success">
+            <button id="btnAdd" type="submit" name="add" onclick="add()" class="btn btn-success">
               Add
             </button>
-            <button id="btnEdit" type="button" class="btn btn-success">
+            <button id="btnEdit" type="button" name="edit" class="btn btn-success">
               Edit
             </button>
             <button
@@ -452,9 +409,15 @@
               Close
             </button>
           </div>
+
+              
+            </form>
+          </div>
+
+
         </div>
       </div>
-    </div>
+    </div>  
 
     <!-- Bootstrap -->
     <script src="js/jquery.min.js"></script>
@@ -466,12 +429,11 @@
     <!-- <script src="js/jquery-ui.min.js"></script> -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/datepicker.js"></script>
+    <script src="js/Product.js"></script>
 
-    <!-- Wow -->
-    <!-- <script src="js/wow.min.js"></script>	
-	<script>
-		new WOW().init();
-	</script>  -->
+
+
+
 
     <!-- <script src="js/modal.js"></script> -->
 
@@ -481,9 +443,12 @@
           $("#sidebar").toggleClass("active");
         });
       });
+ 
+
     </script>
-    <script src="./js/DanhSachDonHang.js"></script>
-    <script src="./js/DonHang.js"></script>
-    <script src="./js/mainDonHang.js"></script>
+    
+      
+    </script>
+
   </body>
 </html>
