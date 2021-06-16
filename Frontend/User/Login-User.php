@@ -2,60 +2,25 @@
 
 <?php
     session_start();
-
-    include "connect.php";
-    if(isset($_POST['UserName']) && isset($_POST['PassWord'])) {
-        
-        function validate($data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
-
-        $Email = validate($_POST['Email']);
-        $MatKhau = validate($_POST['MatKhau']);
-
-        if(empty($UserName)) {
-            header("Location: account.php?error=Tên đăng nhập là bắt buộc");
-            exit();
-
-        } else if(empty($Password)) {
-            header("Location: account.php?error=Mật khẩu là bắt buộc");
-            exit();
-
-        } else {
-            $sql = "SELECT * FROM customer WHERE UserName = '$UserName' and PassWord = '$Password'";
-            $result = mysqli_query($conn, $sql);
-
-            if(mysqli_num_rows($result) === 1) {
-                $row = mysqli_fetch_assoc($result);
-                if($UserName === $row['UserName'] && $Password === $row['PassWord']) {
-                    $_SESSION['UserName'] = $row['UserName'];
-                    $_SESSION['Name'] = $row['Name'];
-
-                    $cart = "SELECT * FROM cart WHERE UserName = '$UserName'";
-                    $cart_result = mysqli_query($conn, $cart);
-                    $countRecord = 0;
-                    while($row = mysqli_fetch_row($cart_result)){
-                        $countRecord += $row[4];
-                    };
-                    $_SESSION['cartCount'] = $countRecord;
-
-                    header("Location: Index-Home.php");
-                }
-            } else {
-                header("Location: account.php?error=Sai tài khoản đăng nhập hoặc mật khẩu");
-                exit();
+    include_once('../db_connect.php');
+        if(isset($_POST['dangnhap'])){ 
+            $Email = $_POST['Email'];
+            $Pass = $_POST['MatKhau'];
+            $select = "SELECT * FROM taikhoan WHERE Email='$Email' AND MatKhau = '$MatKhau'";
+            $kq = mysqli_query($conn,$select);
+            $num = mysqli_num_rows($kq);
+            if($num==1){
+                $user = mysqli_fetch_array($kq);
+                $_SESSION['user']['user_id'] = $user['maAdmin'];
+                $_SESSION['user']['user_name'] = $user['tenAdmin'];
+                
+                header("location: ../ProjectBookStore/Frontend/User/Index-Home.html");
+            }else{
+                $error='wrong passwork';
             }
-            
         }
-    }
-    else {
-        header("Location: account.php?error");
-        exit();
-    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

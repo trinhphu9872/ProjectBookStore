@@ -5,7 +5,7 @@
         <div class='container-fluid'>
             <div class='pt-2 row navrow'>
                 <div class='col-2'>
-                    <div><a class='logo' href='#'>JUSTBOOK</a></div>
+                    <div><a class='logo' href='Index.php'>JUSTBOOK</a></div>
                 </div>
                 <div class='col-8'>
                     <div class='row'>
@@ -87,10 +87,10 @@
                      </div>	
                  </div>
                  <div class="dropdownMenuLogin dropdown-menu" aria-labelledby="loginMenu">
-                    <button class="itemLogin dropdown-item"> <a href="Login-User.html" style="color: #FFF;">Đăng nhập<a></button>
-                        <button class="itemLogin dropdown-item"> <a href="Registration.html" style="color: #FFF;">Tạo tài khoản<a>
+                    <button class="itemLogin dropdown-item"> <a href="Login-User.php" style="color: #FFF;">Đăng nhập<a></button>
+                        <button class="itemLogin dropdown-item"> <a href="Registration.php" style="color: #FFF;">Tạo tài khoản<a>
                         <button class="itemLoginAdmin dropdown-item" >
-                            <a href="Login-Admin.html" style="color: #FFF;">Tài khoản Admin </a>
+                            <a href="Login-Admin.php" style="color: #FFF;">Tài khoản Admin </a>
                         </button>
                  </div>
                 </div>

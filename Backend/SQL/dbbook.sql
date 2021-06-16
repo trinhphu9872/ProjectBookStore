@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3308
--- Thời gian đã tạo: Th6 13, 2021 lúc 01:30 PM
+-- Thời gian đã tạo: Th6 16, 2021 lúc 01:10 PM
 -- Phiên bản máy phục vụ: 10.4.17-MariaDB
 -- Phiên bản PHP: 8.0.2
 
@@ -171,20 +171,24 @@ INSERT INTO `sanpham` (`MaSP`, `TenSP`, `MaLoaiSP`, `TacGia`, `NXB`, `DonGia`, `
 CREATE TABLE `taikhoan` (
   `maKH` int(11) NOT NULL,
   `Email` varchar(255) NOT NULL,
-  `tenTk` text NOT NULL,
-  `matKhau` text NOT NULL
+  `TenTk` text NOT NULL,
+  `GioiTinh` varchar(255) NOT NULL,
+  `NgaySinh` date DEFAULT NULL,
+  `Phone` text NOT NULL,
+  `DiaChi` varchar(255) NOT NULL,
+  `MatKhau` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `taikhoan`
 --
 
-INSERT INTO `taikhoan` (`maKH`, `Email`, `tenTk`, `matKhau`) VALUES
-(1, '', 'trinhphu9872', 'hello123'),
-(2, '', 'Quynh1103', 'abc123'),
-(3, 'cong@gmail.com', 'Trongcong1104', 'abc123'),
-(4, '', 'Dung2333', 'abc123'),
-(5, '', 'Nguye1213', 'abc123');
+INSERT INTO `taikhoan` (`maKH`, `Email`, `TenTk`, `GioiTinh`, `NgaySinh`, `Phone`, `DiaChi`, `MatKhau`) VALUES
+(1, '', 'trinhphu9872', '', NULL, '', '', 'hello123'),
+(2, '', 'Quynh1103', '', NULL, '', '', 'abc123'),
+(3, 'cong@gmail.com', 'Trongcong1104', 'Nam', '2021-06-22', '0362059587', '13/134 HCM', 'abc123'),
+(4, '', 'Dung2333', '', NULL, '', '', 'abc123'),
+(5, '', 'Nguye1213', '', NULL, '', '', 'abc123');
 
 -- --------------------------------------------------------
 
@@ -196,7 +200,7 @@ CREATE TABLE `taikhoanadmin` (
   `maAdmin` int(255) NOT NULL,
   `Email` varchar(255) COLLATE utf32_unicode_ci NOT NULL,
   `tenAdmin` varchar(255) COLLATE utf32_unicode_ci NOT NULL,
-  `matKhau` varchar(255) COLLATE utf32_unicode_ci NOT NULL
+  `MatKhau` varchar(255) COLLATE utf32_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
