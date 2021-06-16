@@ -1,4 +1,6 @@
-
+<?php 
+    session_start();
+?> 
      <div class='back'>
         <div class='container-fluid'>
             <div class='pt-2 row navrow'>
@@ -43,9 +45,9 @@
                             </div>
                         </nav>
                         <nav class='col-7 navbar navbar-light bg-light'>
-                            <form class='form-inline'>
+                            <form class='form-inline' method='GET' action='search.php'>
                                 <div class='custom-search'>
-                                    <input class='form-control mr-sm-2' type='search' placeholder='Search...'
+                                    <input class='form-control mr-sm-2' name ="keyword" type='search' placeholder='Search...'
                                         aria-label='Search'>
                                 </div>
                                 <button class='my-2 custom-btn btn btn-outline-danger my-sm-0'
