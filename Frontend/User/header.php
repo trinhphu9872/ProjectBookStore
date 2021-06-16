@@ -78,24 +78,21 @@
                     </div>
 
                 </div>
-                <div class='col-2 login dropdown'>
-                    <div id='loginMenu' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                        <span class='glyphicon glyphicon-user' style='font-size: 25px; align-self: center;'></span>
-                        <div style='padding-left: 10px;'>
-                            <span style='font-size: 11px;'>Đăng nhập / Đăng ký</span>
-                            <div class='dropdown-toggle'>Tài khoản</div>
-                        </div>
-                    </div>
-                    <div class='dropdownMenuLogin dropdown-menu' aria-labelledby='loginMenu'>
-                        <button class='itemLogin dropdown-item'>Đăng nhập</button>
-                        <button class='itemLogin dropdown-item'>Tạo tài khoản</a>
-                            <button class='itemLogin dropdown-item'>
-                                <span class='custom-icon'>
-                                    <i class='fa fa-facebook'></i>
-                                </span>
-                                Đăng nhập bằng Facebook
-                            </button>
-                    </div>
+                <div class="col-2 login dropdown">
+                    <div id="loginMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <span class="glyphicon glyphicon-user" style="font-size: 25px; align-self: center;"></span>
+                     <div style="padding-left: 10px;">
+                         <span style="font-size: 11px;">Đăng nhập / Đăng ký</span>
+                         <div class="dropdown-toggle">Tài khoản</div>
+                     </div>	
+                 </div>
+                 <div class="dropdownMenuLogin dropdown-menu" aria-labelledby="loginMenu">
+                    <button class="itemLogin dropdown-item"> <a href="Login-User.html" style="color: #FFF;">Đăng nhập<a></button>
+                        <button class="itemLogin dropdown-item"> <a href="Registration.html" style="color: #FFF;">Tạo tài khoản<a>
+                        <button class="itemLoginAdmin dropdown-item" >
+                            <a href="Login-Admin.html" style="color: #FFF;">Tài khoản Admin </a>
+                        </button>
+                 </div>
                 </div>
             </div>
 
