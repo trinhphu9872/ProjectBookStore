@@ -192,11 +192,11 @@
             .<div class='card mx-2  my-1'>
             <a href='ProductDetail.php?idPro=$row[0]'>
                 <img class='card-img-top    mx-auto px-1'
-                    src=./images$row[13] alt=''  height='280px'>
+                    src=./images$row[11] alt=''  height='280px'>
             </a>
                 <div class='card-body'>
                     <h4 class='card-title'>$title</h4>
-                    <p class='card-text'>Giá $row[5] vnd </p>
+                    <p class='card-text'>Giá $row[4] vnd </p>
                
                     <a href='ProductDetail.php?idPro=$row[0]'>
                         <button class='btn btn-primary'>Chi Tiết</button>

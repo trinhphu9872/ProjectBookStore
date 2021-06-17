@@ -1,26 +1,3 @@
-
-
-<?php
-   
-    include("connec.php");
-        if(isset($_POST['dangnhap'])){ 
-            $Email = $_POST['Email'];
-            $Pass = $_POST['MatKhau'];
-            $select = "SELECT * FROM taikhoan WHERE Email='$Email' AND MatKhau = '$Pass'";
-            $kq = mysqli_query($conn,$select);
-            $num = mysqli_num_rows($kq);
-            if($num==1){
-                $user = mysqli_fetch_array($kq);
-                $_SESSION['user']['user_id'] = $user['maAdmin'];
-                $_SESSION['user']['user_name'] = $user['tenAdmin'];
-                
-                header("location:index.php");
-            }else{
-                $error='wrong passwork';
-            }
-        }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,6 +95,15 @@
 
     }
 
+    .login-error {
+        background-color: #F2DEDE;
+        color: #A94442;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 20px 500px;
+        text-align: center
+    }
+
     /* .price-box{
             transform: skew(10deg);
             background-color: orange;
@@ -132,15 +118,20 @@
     ?>
     <!-- Login-User -->
     <div class="collection_text">Login</div>
-        <form action="Login-User.php" class="layout_padding collection_section" method="post">
+        <form action="login.php" class=" collection_section" method="post">
+            <?php if(isset($_GET['error'])) {
+            ?>
+                <div class="login-error"><?php echo $_GET['error'] ?></div>
+            <?php
+            } ?>
 			<div class="container">
-				<div class=" mx-auto">
+				<div class="collection_section_2">
 					<div class="row">
-						<div class ="mx-auto login_box" style ="margin-left: 120px">
-                            <label>Tài Khoản</label>
-							<input class="center-block" type="text" id="account" name="Email" placeholder = "Vui lòng nhập Email" style="width: 400px; height: 40px;"><br><br>
-                            <label>Mật khẩu</label>
-                            <input class="center-block" type="password" id="pass" name="MatKhau" placeholder = "Vui lòng nhập mật khẩu" style="width: 400px; height: 40px;">
+						<div class = "login_box mx-auto my-3" style ="margin-left: 120px">
+                            <label>Nhập Email</label>
+							<input required class="center-block" type="text" id="account" name="Email" placeholder = "Vui lòng nhập Email" style="width: 400px; height: 40px;"><br><br>
+							<label>Nhập Mật Khẩu</label>
+                            <input required class="center-block" type="password" id="pass" name="MatKhau" placeholder = "Vui lòng nhập mật khẩu" style="width: 400px; height: 40px;">
 							<p> Don't have an account?<a href="Registration.php"> Click here</a></p><br>
                             <input type = "submit" name = "dangnhap" id = " " class="subscribr_bt" style ="width: 100%;" value = "Sign In" > <br><br><br><br>		
 						</div>

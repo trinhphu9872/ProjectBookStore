@@ -1,5 +1,6 @@
 <?php
     session_start();
-    unset($_SESSION['user']);
-    header("location: ../ProjectBookStore/Frontend/User/Index-Home.php");
+    session_destroy();
+
+    header("Location: Index.php");
 ?>

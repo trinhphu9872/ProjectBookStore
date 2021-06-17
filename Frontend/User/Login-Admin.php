@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,6 +95,15 @@
 
     }
 
+    .login-error {
+        background-color: #F2DEDE;
+        color: #A94442;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 0px 500px;
+        text-align: center
+    }
+
     /* .price-box{
             transform: skew(10deg);
             background-color: orange;
@@ -111,24 +118,25 @@
     ?>
     <!-- LoginAdmin -->
     <div class="collection_text" style="background-color: #ffa82d; color: #000;">Admin</div>
-    <div class=" collection_section">
-            <form action="Login.php" class="layout_padding collection_section" method="post">
+    <div class="layout_padding collection_section">
+            <?php if(isset($_GET['error'])) {
+                ?>
+                    <div class="login-error"><?php echo $_GET['error'] ?></div>
+                <?php
+            } ?>
+            <form action="adminLogin.php" class=" collection_section" method="post">
                 <div class="container">
-                    <div >
-                        <div class="row ">
+                    <div class="collection_section_2">
+                        <div class="row">
                             <div class="login_box mx-auto" style="margin-left: 120px">
                                 <div id="message" style="text-align: center;; color: red;"></div>
-                                    <label>Email</label>
+                                    <label>Nhập Email</label>
                                     <input class="center-block" type="email" id="Email" name="Email" placeholder="Vui lòng nhập Email" required style="width: 400px; height: 40px;"><br><br>
-                                    <label>Mật Khẩu</label>
+                                    <label>Nhập Mật Khẩu</label>
                                     <input class="center-block" type="password" id="MatKhau" name="MatKhau" placeholder="Vui lòng nhập mật khẩu" required style="width: 400px; height: 40px;"><br>
-                           
                                     <div style=" color: red; font-weight: bold;"></div>
-                            
                                     <p >Bạn cần đăng nhập bằng tài khoản Admin</p>
-                                    <input type = "submit" name="dangnhap" id = " " class="subscribr_bt btn-warning" style ="width: 100%;" value = "Sign In" > <br><br><br><br>
-                        
-                        
+                                    <input type = "submit" name = "dangnhap" id = " " class="subscribr_bt btn-warning" style ="width: 100%;" value = "Sign In" > <br><br><br><br>
                                 </div>
                             </div>
                         </div>

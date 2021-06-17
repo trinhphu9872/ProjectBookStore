@@ -1,38 +1,3 @@
-<?php
-            include_once('../connect.php');
-            if (isset($_POST["btn_submit"])) {
-		        $Email = $_POST["email"];
-		        $MatKhau = $_POST["matkhau"];
-		        $TenKH = $_POST["username"];
-		        $Phone = $_POST["sdt"];
-		        if ($Email == "" || $MatKhau == "" || $TenKH == "" || $Phone == "") {
-			        echo "Bạn vui lòng nhập đầy đủ thông tin";
-		        }else{
-                    $sql="select * from taikhoan where email='$Email'";
-                    $kt=mysqli_query($conn, $sql);
-
-                    if(mysqli_num_rows($kt)  > 0){
-                        echo "Tài khoản đã tồn tại";
-                    }else{
-                        $sql = "INSERT INTO taikhoan(
-                            Email,
-                            MatKhau,
-                            TenKH,
-                            Phone
-                            ) VALUES (
-                            '$Email',
-                            '$MatKhau',
-                            '$TenKH',
-                            '$Phone'
-                            )";
-                            mysqli_query($conn,$sql);
-                            echo "Chúc mừng bạn đã đăng ký thành công";
-                        }
-                    }
-            }
-?>
-        
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -127,6 +92,15 @@
 
     }
 
+    .login-error {
+        background-color: #F2DEDE;
+        color: #A94442;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 20px;
+        text-align: center
+    }
+
     /* .price-box{
             transform: skew(10deg);
             background-color: orange;
@@ -144,38 +118,36 @@
         <div class="collection_text" >Create Account</div>
         
     <div class="layout_padding collection_section">
-        <form action="Registration.php" class="layout_padding collection_section" method="post">   
-            <div class="container">
-                <div class="collection_section_2">
-                    <div class="row">
-                        <div class="login_box" style="margin-left: 150px">
-                           
-                            <label style="color: red; margin-bottom: 15px;">
-                                
-                            </label>
-                            <form>
-                                <input class="center-block" type="email" id="email" name="Email" placeholder="Enter Email" required style="width: 500px; height: 40px;"><br>
-                                <input class="center-block" type="text" id="password" name="password" placeholder="Enter Password" required style="width: 500px; height: 40px;"><br>
-                                <input class="center-block" type="text" id="Password" name="Password" placeholder="Enter Confirm Password" required style="width: 500px; height: 40px;"><br>
-                                <input class="center-block" type="text" id="accountName" name="TenKH" placeholder="Enter Account Name" required style="width: 500px; height: 40px;"><br>
-                                <input class="center-block" type="text" id="Address" name="DiaChi" placeholder="Enter Your Address" required style="width: 500px; height: 40px;"><br>
-                                <input class="center-block" type="number" id="phoneNumber" name="Phone" placeholder="Enter Your Phone Number" required style="width: 500px; height: 40px;"><br>
-                                <input type="radio" id="male" name="GioiTinh" value="Nam" required>
-                                <label for="male">Male</label><br>
-                                <input type="radio" id="female" name="GioiTinh" value="Nữ" required>
-                                <label for="female">Female</label><br>
-                                <label for="birthday">Birthday:</label>
-                                <input type="date" id="birthday" name="NgaySinh" required><br><br>
-                                <input type="checkbox" id="agreeTerm" name="agreeTerm" value="acceptTerm" required>  <label for="agreeTerm"> I agree all statements in <a href="https://support.google.com/chrome/?p=incognito"> Terms of service</a></label><br><br>
-                                <button class="subscribr_bt" style="width: 100%;">Sign Up</button><br>
-                                <p> Have already an account? <a href="Login-User.html"> Login here</a></p><br><br><br><br>
-                            </form>
-                            
-                        </div>
+        <div class="container">
+            <div class="collection_section_2">
+                <?php if(isset($_GET['error'])) {
+                    ?>
+                        <div class="login-error"><?php echo $_GET['error'] ?></div>
+                    <?php
+                } ?>
+                <div class="row">
+                    <div class="login_box" style="margin-left: 150px">
+                        <form action="register.php" method="post">
+                            <input class="center-block" type="email" id="email" name="Email" placeholder="Enter Email" required style="width: 500px; height: 40px;"><br>
+                            <input class="center-block" type="password" id="password" name="MatKhau" placeholder="Enter Password" required style="width: 500px; height: 40px;"><br>
+                            <input class="center-block" type="password" id="Password" name="XacNhanMatKhau" placeholder="Enter Confirm Password" required style="width: 500px; height: 40px;"><br>
+                            <input class="center-block" type="text" id="accountName" name="TenTk" placeholder="Enter Account Name" required style="width: 500px; height: 40px;"><br>
+                            <input class="center-block" type="text" id="Address" name="DiaChi" placeholder="Enter Your Address" required style="width: 500px; height: 40px;"><br>
+                            <input class="center-block" type="number" id="phoneNumber" name="Phone" placeholder="Enter Your Phone Number" required style="width: 500px; height: 40px;"><br>
+                            <input type="radio" id="male" name="GioiTinh" value="Nam" required>
+                            <label for="male">Male</label><br>
+                            <input type="radio" id="female" name="GioiTinh" value="Nữ" required>
+                            <label for="female">Female</label><br>
+                            <label for="birthday">Birthday:</label>
+                            <input type="date" id="birthday" name="NgaySinh" required><br><br>
+                            <input type="checkbox" id="agreeTerm" name="agreeTerm" value="acceptTerm" required>  <label for="agreeTerm"> I agree all statements in <a href="https://support.google.com/chrome/?p=incognito"> Terms of service</a></label><br><br>
+                            <button class="subscribr_bt" style="width: 100%;" type="submit">Sign Up</button><br>
+                            <p> Have already an account? <a href="Login-User.php"> Login here</a></p><br><br><br><br>
+                        </form>
                     </div>
                 </div>
             </div>
-        <form>    
+        </div>  
     </div>
     
 

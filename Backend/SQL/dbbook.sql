@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 17, 2021 lúc 12:37 AM
+-- Thời gian đã tạo: Th6 17, 2021 lúc 11:00 AM
 -- Phiên bản máy phục vụ: 10.4.17-MariaDB
 -- Phiên bản PHP: 8.0.2
 
@@ -171,20 +171,23 @@ INSERT INTO `sanpham` (`MaSP`, `TenSP`, `TacGia`, `NXB`, `DonGia`, `MoTa`, `SoLu
 CREATE TABLE `taikhoan` (
   `maKH` int(11) NOT NULL,
   `Email` varchar(255) NOT NULL,
-  `tenTk` text NOT NULL,
-  `matKhau` text NOT NULL
+  `TenTk` text NOT NULL,
+  `GioiTinh` varchar(255) NOT NULL,
+  `NgaySinh` date NOT NULL,
+  `Phone` text NOT NULL,
+  `DiaChi` varchar(255) NOT NULL,
+  `MatKhau` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `taikhoan`
 --
 
-INSERT INTO `taikhoan` (`maKH`, `Email`, `tenTk`, `matKhau`) VALUES
-(1, 'trinhphu9872@gmail.com', 'trinhphu9872', 'dsad'),
-(2, 'trinhphu9872@gmail.com', 'Quynh1103', 'asa'),
-(3, 'cong@gmail.com', 'Trongcong1104', 'abc123'),
-(4, 'trinhphu9872@gmail.com', 'Dung2333', 'sâsss'),
-(5, 'trinhphu9872@gmail.com', 'Nguye1213', '123');
+INSERT INTO `taikhoan` (`maKH`, `Email`, `TenTk`, `GioiTinh`, `NgaySinh`, `Phone`, `DiaChi`, `MatKhau`) VALUES
+(3, 'cong@gmail.com', 'Trongcong1104', 'Nam', '2021-06-22', '0362059587', '13/134 HCM', 'abc123'),
+(6, 'test01@gmail.com', 'Test 01', 'Nam', '0000-00-00', '', '', '123456'),
+(7, 'test02@gmail.com', 'Test 02', 'Name', '0000-00-00', '123321', 'HCM', '123456'),
+(8, 'test03@gmail.com', 'Test 03', 'Nữ', '2021-06-01', '321', 'HCM', '123456');
 
 -- --------------------------------------------------------
 
@@ -198,6 +201,13 @@ CREATE TABLE `taikhoanadmin` (
   `tenAdmin` varchar(255) COLLATE utf32_unicode_ci NOT NULL,
   `matKhau` varchar(255) COLLATE utf32_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `taikhoanadmin`
+--
+
+INSERT INTO `taikhoanadmin` (`maAdmin`, `Email`, `tenAdmin`, `matKhau`) VALUES
+(1, 'trinhphu9872@gmail.com', 'trinhphu', '030601Shin1');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -248,7 +258,7 @@ ALTER TABLE `taikhoanadmin`
 -- AUTO_INCREMENT cho bảng `taikhoanadmin`
 --
 ALTER TABLE `taikhoanadmin`
-  MODIFY `maAdmin` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `maAdmin` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
