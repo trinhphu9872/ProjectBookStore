@@ -59,8 +59,8 @@
                 <a href="Order.php" class='h5 text-center '>Quản lí Đơn Hàng</a>
               </div>
               <div class="col-3 text-center">
-                <a href="infoMe.php"><img class='my-5' src="images/administrator_woman2.png" alt=""></a>
-                <a href="infoMe.php" class='h5 text-center '>Thông tin Cá Nhân</a>
+                <a href="AdminInfo.php"><img class='my-5' src="images/administrator_woman2.png" alt=""></a>
+                <a href="AdminInfo.php" class='h5 text-center '>Thông tin Cá Nhân</a>
               </div>
             </div>
         </div>

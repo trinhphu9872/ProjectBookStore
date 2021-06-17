@@ -46,11 +46,12 @@
         <?php
             $idPro = $_GET["edit"];
             include("connect.php");
-            $lenh = "select * from sanpham where MaSP = $id";
+            $lenh = "select * from sanpham where MaSP = $idPro";
             $kq = mysqli_query($conn,$lenh);
                 while($row = mysqli_fetch_row($kq)) {
                    echo "
-                   <form style='width:650px' class='px-5 ' role='form' method='POST' enctype='multipart/form-data' action='processPro.php?id=$id'>
+                   
+                   <form style='width:650px' class='px-5 ' role='form' method='POST' enctype='multipart/form-data' action='processPro.php?id=$idPro'>
                    <div class='form-group'>
                         <label for='MaSanPham'><i class='fa fa-user'></i> Mã Sản Phẩm</label>
                          <input 

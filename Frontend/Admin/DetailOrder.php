@@ -42,7 +42,7 @@
       <!-- Page Content Holder -->
       <div id="content">
         <h1 class="text-center text-title-Don text-light">
-          Đơn Hàng
+          Chi Tiết Đơn Hàng 
         </h1>
         <table class="my-5 table table-bordered table-hover table-light">
                 <thead class="text-primary">
@@ -81,12 +81,7 @@
                          
 
                             
-                            <td>
-                       
-                            <a href=''> <button class='my-2 btn btn-info' onclick='edit()'>Edit</button></a>
-
-                            <a href=''> <button class='my-2 btn btn-danger' '>Delete</button></a>
-                            </td>
+                           
                         </tr>
                         ";
 

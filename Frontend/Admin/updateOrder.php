@@ -42,15 +42,15 @@
       <!-- Page Content Holder -->
       <div id="content">
   
-        <h1 class="text-center text-title-Don text-light">Update sản phẩm</h1>
+        <h1 class="text-center text-title-Don text-light">Cập nhật Đơn Hàng</h1>
         <?php
-            $idPro = $_GET["edit"];
+            $idPro = $_GET["id"];
             include("connect.php");
-            $lenh = "select * from donhang where MaDH = $id";
+            $lenh = "select * from donhang where MaDH = $idPro";
             $kq = mysqli_query($conn,$lenh);
                 while($row = mysqli_fetch_row($kq)) {
                     echo"
-                    <form style='width:650px' class='px-5 ' role='form' method='POST' enctype='multipart/form-data' action='processOrder.php?id=$id'>
+                    <form style='width:650px' class='px-5 ' role='form' method='POST' enctype='multipart/form-data' action='processOrder.php?id=$idPro'>
                     <div class='form-group'>
                          <label for='maKH'><i class='fa fa-user'></i> Mã Khách Hàng</label>
                           <input 
@@ -107,13 +107,12 @@
                        value = '$row[6]'
                   </div>
                     
-                
-                  <button type='submit' id='btnUpdate' type='button' name='update' onClick='editPro($row[1])' class='btn btn-success'>
+                  <button  type='submit' id='btnUpdate' type='button' name='update' onClick='editPro($row[1])' class='btn btn-success my-3'>
                     Update
                   </button>
              <from/>
                     
-                
+                ";
 
                 };
        

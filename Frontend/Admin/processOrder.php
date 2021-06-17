@@ -9,8 +9,15 @@ if (isset($_GET['delete'])){
 
 if (isset($_POST['update'])){
     $id = $_GET['id'];
+    $MaKH = $_POST['MaKH'];
+    $PhoneNguoiNhan = $_POST['PhoneNguoiNhan'];
+    $DiaChiNguoiNhan = $_POST['DiaChiNguoiNhan'];
+    $ThoiGianTao = $_POST['ThoiGianTao'];
+    $PhuongThucThanhToan = $_POST['PhuongThucThanhToan'];
+    $TongGiaTriDonHang = $_POST['TongGiaTriDonHang'];        
+
     
-    $mysqli->query("DELETE FROM donhang WHERE MaDH=$id") or die(mysqli.error);
+    $mysqli->query("UPDATE  donhang set  MaDH='$id' , MaKH='$MaKH', PhoneNguoiNhan='$PhoneNguoiNhan',ThoiGianTao = '$ThoiGianTao'  , PhuongThucThanhToan='$PhuongThucThanhToan', TongGiaTriDonHang = $TongGiaTriDonHang where MaDH = $id") or die(mysqli.error);
     header("Location:Order.php");
 }
 ?>

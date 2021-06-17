@@ -82,7 +82,7 @@
                             
                             <td>
                             <a href='DetailOrder.php?id=$row[0]'> <button class='my-2 btn btn-warning'>Detail</button></a>
-                            <a href='updateOrder.php?Edit=$row[0]'> <button class='my-2 btn btn-info' onclick='edit()'>Edit</button></a>
+                            <a href='updateOrder.php?id=$row[0]'> <button class='my-2 btn btn-info' onclick='edit()'>Edit</button></a>
                             </td>
                         </tr>
                         ";
