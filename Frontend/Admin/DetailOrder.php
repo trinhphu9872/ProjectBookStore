@@ -48,13 +48,13 @@
                 <thead class="text-primary">
                   <tr>
                     <th class="nowrap">
-                      <span class="">Mã </span>
+                      <span class="">Mã Chi tiết đơn </span>
                     </th>
-                    <th>Mã Khách hàng</th>
-                    <th>Số Điện thoại</th>
-                    <th>Địa Chỉ </th>
-                    <th>Thời gian tạo</th>
-                    <th>Phương thức thanh toán</th>
+                    <th>Mã đơn</th>
+                    <th>Sản Phẩm</th>
+                    <th>Số lượng </th>
+                    <th>Đơn Giá</th>
+                    <th>Chiết Khấu</th>
                     <th>Tổng giá trị đơn hàng</th>
               
                   </tr>
@@ -62,8 +62,9 @@
                 <tbody id="tableDonHang">
                 
                 <?php
+            $id = $_GET['id'];
             include("connect.php");
-            $lenh = "SELECT d.MaDH, d.MaKH ,d.PhoneNguoiNhan, d.DiaChiNguoiNhan, d.ThoiGianTao, d.PhuongThucThanhToan, d.TongGiaTriDonHang FROM donhang as d";
+            $lenh = "SELECT c.MachiTietDH,c.MaDonHang,s.TenSP,c.SoLuong,s.DonGia,c.ChietKhau,c.TongTien FROM chitietdonhang as c , sanpham as s where c.MaDonHang = $id AND c.MaSP = s.MaSP ";
             $kq = mysqli_query($conn,$lenh);
             
             while($row = mysqli_fetch_row($kq))
@@ -81,8 +82,10 @@
 
                             
                             <td>
-                            <a href='DetailOrder.php?id=$row[0]'> <button class='my-2 btn btn-warning'>Detail</button></a>
-                            <a href='updateOrder.php?Edit=$row[0]'> <button class='my-2 btn btn-info' onclick='edit()'>Edit</button></a>
+                       
+                            <a href=''> <button class='my-2 btn btn-info' onclick='edit()'>Edit</button></a>
+
+                            <a href=''> <button class='my-2 btn btn-danger' '>Delete</button></a>
                             </td>
                         </tr>
                         ";

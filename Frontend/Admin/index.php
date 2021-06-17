@@ -55,8 +55,8 @@
                 <a href="SanPhamAdmin.php" class='h5 text-center '>Quản Lí Sản Phẩm</a>
               </div>
               <div class="col-3 text-center">
-                <a href="CartManage.php"><img class='my-5' src="images/shopping_cart_full.png" alt=""></a>
-                <a href="CartManage.php" class='h5 text-center '>Quản lí Đơn Hàng</a>
+                <a href="Order.php"><img class='my-5' src="images/shopping_cart_full.png" alt=""></a>
+                <a href="Order.php" class='h5 text-center '>Quản lí Đơn Hàng</a>
               </div>
               <div class="col-3 text-center">
                 <a href="infoMe.php"><img class='my-5' src="images/administrator_woman2.png" alt=""></a>

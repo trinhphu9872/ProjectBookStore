@@ -44,7 +44,7 @@
   
         <h1 class="text-center text-title-Don text-light">Update sản phẩm</h1>
         <?php
-            $id = $_GET["edit"];
+            $idPro = $_GET["edit"];
             include("connect.php");
             $lenh = "select * from sanpham where MaSP = $id";
             $kq = mysqli_query($conn,$lenh);
