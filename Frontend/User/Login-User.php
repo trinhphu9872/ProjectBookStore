@@ -1,12 +1,12 @@
 
 
 <?php
-    session_start();
-    include_once('../db_connect.php');
+   
+    include("connec.php");
         if(isset($_POST['dangnhap'])){ 
             $Email = $_POST['Email'];
             $Pass = $_POST['MatKhau'];
-            $select = "SELECT * FROM taikhoan WHERE Email='$Email' AND MatKhau = '$MatKhau'";
+            $select = "SELECT * FROM taikhoan WHERE Email='$Email' AND MatKhau = '$Pass'";
             $kq = mysqli_query($conn,$select);
             $num = mysqli_num_rows($kq);
             if($num==1){
@@ -14,7 +14,7 @@
                 $_SESSION['user']['user_id'] = $user['maAdmin'];
                 $_SESSION['user']['user_name'] = $user['tenAdmin'];
                 
-                header("location: ../ProjectBookStore/Frontend/User/Index-Home.html");
+                header("location:index.php");
             }else{
                 $error='wrong passwork';
             }
@@ -134,11 +134,13 @@
     <div class="collection_text">Login</div>
         <form action="Login-User.php" class="layout_padding collection_section" method="post">
 			<div class="container">
-				<div class="collection_section_2">
+				<div class=" mx-auto">
 					<div class="row">
-						<div class = "login_box" style ="margin-left: 120px">
+						<div class ="mx-auto login_box" style ="margin-left: 120px">
+                            <label>Tài Khoản</label>
 							<input class="center-block" type="text" id="account" name="Email" placeholder = "Vui lòng nhập Email" style="width: 400px; height: 40px;"><br><br>
-							<input class="center-block" type="password" id="pass" name="MatKhau" placeholder = "Vui lòng nhập mật khẩu" style="width: 400px; height: 40px;">
+                            <label>Mật khẩu</label>
+                            <input class="center-block" type="password" id="pass" name="MatKhau" placeholder = "Vui lòng nhập mật khẩu" style="width: 400px; height: 40px;">
 							<p> Don't have an account?<a href="Registration.php"> Click here</a></p><br>
                             <input type = "submit" name = "dangnhap" id = " " class="subscribr_bt" style ="width: 100%;" value = "Sign In" > <br><br><br><br>		
 						</div>

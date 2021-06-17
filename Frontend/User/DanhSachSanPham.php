@@ -126,16 +126,16 @@
                             </div>
                             <div class="card-body">
                                 <ul>
-                                    <a href="">
+                                    <a href="DanhSachSanPham.php">
                                         <li>Sách Lập Trình</li>
                                     </a>
-                                    <a href="">
+                                    <a href="DanhSachSanPham.php">
                                         <li>Sách Văn Học</li>
                                     </a>
-                                    <a href="">
+                                    <a href="DanhSachSanPham.php">
                                         <li>Sách Tiếng Anh</li>
                                     </a>
-                                    <a href="">
+                                    <a href="DanhSachSanPham.php">
                                         <li>Các sách khác</li>
                                     </a>
                                 </ul>
@@ -183,15 +183,16 @@
                                                 while($row = mysqli_fetch_row($kq))
                                                     {
                                                       $title = substr($row[1],0,20);
-                                                      echo"      <div class='col-3'>
-                                                      .<div class='card mx-2  my-1'>
+                                                      echo"     
+                                                       <div class='col-3'>
+                                                      <div class='card mx-2  my-1'>
                                                       <a href='ProductDetail.php?idPro=$row[0]'>
                                                           <img class='card-img-top    mx-auto px-1'
-                                                              src=./images$row[13] alt=''  height='280px'>
+                                                              src='./images$row[11]' alt=''  height='280px'>
                                                       </a>
                                                           <div class='card-body'>
                                                               <h4 class='card-title'>$title</h4>
-                                                              <p class='card-text'>Giá $row[5] vnd </p>
+                                                              <p class='card-text'>Giá $row[4] vnd </p>
                                                          
                                                               <a href='ProductDetail.php?idPro=$row[0]'>
                                                                   <button class='btn btn-primary'>Chi Tiết</button>
@@ -199,10 +200,10 @@
                                                           </div>
                                                       </div>
                                               
-                                          </div> ";
+                                                    </div> ";
                                                     
                                                   
-                                                    }
+                                                    };
                                                     echo '</table>';
                                                     mysqli_close($conn);
                                                     ?>
@@ -228,11 +229,11 @@
                                                       .<div class='card mx-2  my-1'>
                                                       <a href='ProductDetail.php?idPro=$row[0]'>
                                                           <img class='card-img-top    mx-auto px-1'
-                                                              src=./images$row[13] alt=''  height='280px'>
+                                                              src=./images$row[11] alt=''  height='280px'>
                                                       </a>
                                                           <div class='card-body'>
                                                               <h4 class='card-title'>$title</h4>
-                                                              <p class='card-text'>Giá $row[5] vnd </p>
+                                                              <p class='card-text'>Giá $row[4] vnd </p>
                                                          
                                                               <a href='ProductDetail.php?idPro=$row[0]'>
                                                                   <button class='btn btn-primary'>Chi Tiết</button>
@@ -267,11 +268,11 @@
                                                                         .<div class='card mx-2  my-1'>
                                                                         <a href='ProductDetail.php?idPro=$row[0]'>
                                                                             <img class='card-img-top    mx-auto px-1'
-                                                                                src=./images$row[13] alt=''  height='280px'>
+                                                                                src=./images$row[11] alt=''  height='280px'>
                                                                         </a>
                                                                             <div class='card-body'>
                                                                                 <h4 class='card-title'>$title</h4>
-                                                                                <p class='card-text'>Giá $row[5] vnd </p>
+                                                                                <p class='card-text'>Giá $row[4] vnd </p>
                                                                            
                                                                                 <a href='ProductDetail.php?idPro=$row[0]'>
                                                                                     <button class='btn btn-primary'>Chi Tiết</button>

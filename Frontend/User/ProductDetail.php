@@ -1,7 +1,5 @@
 
-<?php
-    session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,17 +120,17 @@
                     $lenh = "select * from sanpham where MaSP = $idPro";
                     $kq = mysqli_query($conn,$lenh);
                         while($row = mysqli_fetch_row($kq)) {
-                            $mota = substr($row[6],0,369);
+                            $mota = substr($row[5],0,369);
                             echo"
                       
                             <div class='col-5 text-center p-5 '>
-                                <img src=images/$row[13] width='420px' >
+                                <img src=images/$row[11] width='420px' >
                             </div>
                             <div class='col-7 mx-auto '>
                                 <h2 class='my-4'> $row[1]</h2>
-                                <h4 class='my-4'><i class='fa fa-user-graduate'></i>  Tác Giả :  $row[3]</h4>
-                                <h4 class='my-4'><i class='fa fa-home'></i>  Nhà Xuất Bản : $row[4]</h4>
-                                <h4 class='my-4'> Trọng Lương và Kích Thước : $row[9] x $row[10] </h4>
+                                <h4 class='my-4'><i class='fa fa-user-graduate'></i>  Tác Giả :  $row[2]</h4>
+                                <h4 class='my-4'><i class='fa fa-home'></i>  Nhà Xuất Bản : $row[3]</h4>
+                                <h4 class='my-4'> Trọng Lương và Kích Thước : $row[8] x $row[9] </h4>
                                 <h4 class='my-4'> <i class='fa fa-scroll'></i> Mô tả</h4>
                                 <div class='col-7 my-2'>
                                     <p>$mota ...</p>

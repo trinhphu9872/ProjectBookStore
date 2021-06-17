@@ -1,25 +1,5 @@
 
 
-<?php
-    session_start();
-    include_once('../db_connect.php');
-        if(isset($_POST['dangnhap'])){ 
-            $Email = $_POST['Email'];
-            $Pass = $_POST['MatKhau'];
-            $select = "SELECT * FROM taikhoan WHERE Email='$Email' AND MatKhau = '$MatKhau'";
-            $kq = mysqli_query($conn,$select);
-            $num = mysqli_num_rows($kq);
-            if($num==1){
-                $user = mysqli_fetch_array($kq);
-                $_SESSION['user']['user_id'] = $user['maAdmin'];
-                $_SESSION['user']['user_name'] = $user['tenAdmin'];
-                
-                header("location: ../ProjectBookStore/Frontend/User/Index-Home.html");
-            }else{
-                $error='wrong passwork';
-            }
-        }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -131,20 +111,22 @@
     ?>
     <!-- LoginAdmin -->
     <div class="collection_text" style="background-color: #ffa82d; color: #000;">Admin</div>
-    <div class="layout_padding collection_section">
-            <form action="Login-User.php" class="layout_padding collection_section" method="post">
+    <div class=" collection_section">
+            <form action="Login.php" class="layout_padding collection_section" method="post">
                 <div class="container">
-                    <div class="collection_section_2">
-                        <div class="row">
-                            <div class="login_box" style="margin-left: 120px">
+                    <div >
+                        <div class="row ">
+                            <div class="login_box mx-auto" style="margin-left: 120px">
                                 <div id="message" style="text-align: center;; color: red;"></div>
+                                    <label>Email</label>
                                     <input class="center-block" type="email" id="Email" name="Email" placeholder="Vui lòng nhập Email" required style="width: 400px; height: 40px;"><br><br>
+                                    <label>Mật Khẩu</label>
                                     <input class="center-block" type="password" id="MatKhau" name="MatKhau" placeholder="Vui lòng nhập mật khẩu" required style="width: 400px; height: 40px;"><br>
                            
                                     <div style=" color: red; font-weight: bold;"></div>
                             
                                     <p >Bạn cần đăng nhập bằng tài khoản Admin</p>
-                                    <input type = "submit" name = "dangnhap" id = " " class="subscribr_bt btn-warning" style ="width: 100%;" value = "Sign In" > <br><br><br><br>
+                                    <input type = "submit" name="dangnhap" id = " " class="subscribr_bt btn-warning" style ="width: 100%;" value = "Sign In" > <br><br><br><br>
                         
                         
                                 </div>

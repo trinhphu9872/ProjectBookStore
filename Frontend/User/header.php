@@ -34,11 +34,11 @@
                                             </div>
                                         </a>
                                         <div class='bookCollection dropdown-menu' aria-labelledby='navbarDropdown'>
-                                            <a class='bookItem dropdown-item' href='#'>Sách Lập Trình</a>
-                                            <a class='bookItem dropdown-item' href='#'>Sách Văn Học</a>
-                                            <a class='bookItem dropdown-item' href='#'>Sách Tiếng Anh</a>
+                                            <a class='bookItem dropdown-item' href='DanhSachSanPham.php'>Sách Lập Trình</a>
+                                            <a class='bookItem dropdown-item' href='DanhSachSanPham.php'>Sách Văn Học</a>
+                                            <a class='bookItem dropdown-item' href='DanhSachSanPham.php'>Sách Tiếng Anh</a>
                                             <div class='dropdown-divider'></div>
-                                            <a class='bookItem dropdown-item' href='#'>Sách Giảm Giá</a>
+                                            <a class='bookItem dropdown-item' href='DanhSachSanPham.php'>Sách Giảm Giá</a>
                                         </div>
                                     </div>
                                 </div>
