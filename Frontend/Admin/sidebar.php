@@ -27,7 +27,7 @@
       
     </li>
       <li>
-        <a href=''>
+        <a href='Order.php'>
           <i class='fa fa-id-card'></i>
           Quản lí đơn hàng
         </a>
