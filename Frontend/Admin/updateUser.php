@@ -42,7 +42,7 @@
       <!-- Page Content Holder -->
       <div id="content">
   
-        <h1 class="text-center text-title-Don text-light">Update sản phẩm</h1>
+        <h1 class="text-center text-title-Don text-light">Update Thông tin</h1>
         <?php
          
                 $id = $_GET['edit'];
