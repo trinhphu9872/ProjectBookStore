@@ -117,7 +117,7 @@
         <!-- Create Account -->
         <div class="collection_text" >Create Account</div>
         
-    <div class="layout_padding collection_section">
+    <div class=" collection_section">
         <div class="container">
             <div class="collection_section_2">
                 <?php if(isset($_GET['error'])) {
@@ -126,7 +126,7 @@
                     <?php
                 } ?>
                 <div class="row">
-                    <div class="login_box" style="margin-left: 150px">
+                    <div class="login_box mx-auto my-5" style="margin-left: 150px">
                         <form action="register.php" method="post">
                             <input class="center-block" type="email" id="email" name="Email" placeholder="Enter Email" required style="width: 500px; height: 40px;"><br>
                             <input class="center-block" type="password" id="password" name="MatKhau" placeholder="Enter Password" required style="width: 500px; height: 40px;"><br>
